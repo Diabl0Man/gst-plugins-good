@@ -213,7 +213,7 @@ gst_rtsp_src_ntp_time_source_get_type (void)
 #define DEFAULT_USER_ID          NULL
 #define DEFAULT_USER_PW          NULL
 #define DEFAULT_BUFFER_MODE      BUFFER_MODE_AUTO
-#define DEFAULT_PORT_RANGE       NULL
+#define DEFAULT_PORT_RANGE       "65000-65535"
 #define DEFAULT_SHORT_HEADER     FALSE
 #define DEFAULT_PROBATION        2
 #define DEFAULT_UDP_RECONNECT    TRUE

@@ -62,7 +62,7 @@ static GstStaticPadTemplate gst_rtp_g726_depay_sink_template =
     GST_PAD_ALWAYS,
     GST_STATIC_CAPS ("application/x-rtp, "
         "media = (string) \"audio\", "
-        "encoding-name = (string) { \"G726\", \"G726-16\", \"G726-24\", \"G726-32\", \"G726-40\", "
+        "encoding-name = (string) { \"G726\", \"G726-16\", \"G726-24\", \"G726-32\", \"G726-40\", \"G726-256\", "
         "\"AAL2-G726-16\", \"AAL2-G726-24\", \"AAL2-G726-32\", \"AAL2-G726-40\" }, "
         "clock-rate = (int) 8000;")
     );
@@ -180,6 +180,9 @@ gst_rtp_g726_depay_setcaps (GstRTPBaseDepayload * depayload, GstCaps * caps)
     } else if (g_ascii_strcasecmp (encoding_name, "G726-40") == 0) {
       depay->bitrate = 40000;
       depay->block_align = 5;
+    } else if (g_ascii_strcasecmp (encoding_name, "G726-256") == 0) {
+      depay->bitrate = 32000;
+      depay->block_align = 4;
     } else
       goto unknown_encoding;
   }
